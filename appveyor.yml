@@ -6,7 +6,7 @@ environment:
 
     CONAN_UPLOAD: 1
     CONAN_REFERENCE: "hello/0.1"
-    CONAN_USERNAME: "filonovpv"
+    CONAN_USERNAME: "rog13"
     CONAN_CHANNEL: "testing"
     CONAN_TOTAL_PAGES: 4
 
