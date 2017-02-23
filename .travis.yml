@@ -12,7 +12,7 @@ env:
 
 addons:
  apt:
- sources:
- - ubuntu-toolchain-r-test
- packages:
- - g++-6
+  sources:
+  - ubuntu-toolchain-r-test
+  packages:
+  - g++-6
