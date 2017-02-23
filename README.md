@@ -1,5 +1,3 @@
-Build Status
-Build status
 badge
 cpp-russia-hello
 
