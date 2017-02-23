@@ -1,33 +1,80 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @rog13
+ Sign out
+ Watch 1
+  Star 1
+  Fork 0 sdukshis/cpp-russia-hello
+ Code  Issues 4  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
+Tag: multitarget Find file Copy pathcpp-russia-hello/.travis.yml
+d6c1cf8  28 days ago
+@sdukshis sdukshis disable xcode 8.1
+1 contributor
+RawBlameHistory     
+65 lines (56 sloc)  1.35 KB
 dist: trusty
 language: cpp
 
 script:
- - mkdir build && cd build
- - cmake .. -DCMAKE_CXX_COMPILER=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER
- - cmake --build .
- - ./hello
+  - mkdir build && cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER
+  - cmake --build . -- VERBOSE=1
+  - ./hello
+
 
 env:
- - BUILD_TYPE=Release COMPILER=g++-4.9
- - BUILD_TYPE=Release COMPILER=g++-5
- - BUILD_TYPE=Release COMPILER=g++-6
- - BUILD_TYPE=Release COMPILER=clang++-3.9
- #- BUILD_TYPE=Release COMPILER=clang++-4.0
- - BUILD_TYPE=Debug COMPILER=g++-4.9
- - BUILD_TYPE=Debug COMPILER=g++-5
- - BUILD_TYPE=Debug COMPILER=g++-6
- - BUILD_TYPE=Debug COMPILER=clang++-3.9
- #- BUILD_TYPE=Debug COMPILER=clang++-4.0
+  - BUILD_TYPE=Release COMPILER=g++-4.9
+  - BUILD_TYPE=Release COMPILER=g++-5
+  - BUILD_TYPE=Release COMPILER=g++-6
+  - BUILD_TYPE=Release COMPILER=clang++-3.9
+  #- BUILD_TYPE=Release COMPILER=clang++-4.0
+  - BUILD_TYPE=Debug COMPILER=g++-4.9
+  - BUILD_TYPE=Debug COMPILER=g++-5
+  - BUILD_TYPE=Debug COMPILER=g++-6
+  - BUILD_TYPE=Debug COMPILER=clang++-3.9
+  #- BUILD_TYPE=Debug COMPILER=clang++-4.0
+
 
 addons:
- apt:
-  sources:
-   - ubuntu-toolchain-r-test
-   - llvm-toolchain-trusty-3.9
-  # - llvm-toolchain-trusty-4.0
-  packages:
-   - g++-4.9
-   - g++-5
-   - g++-6
-   - clang-3.9
-   #- clang-4.0
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-3.9
+      #- llvm-toolchain-trusty-4.0
+    packages:
+      - g++-4.9
+      - g++-5
+      - g++-6
+      - clang-3.9
+      #- clang-4.0
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode6.4
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode7.3
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode8
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode8.2
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode6.4
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode7.3
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode8
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode8.2
+      env: BUILD_TYPE=Release
