@@ -1,0 +1,37 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=14
+    os=Windows
+
+[requires]
+    gtest/1.Y.Z
+    hello/0.1
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=Visual Studio
+    compiler.runtime=MD
+    compiler.version=14
+    os=Windows
+
+[full_requires]
+    gtest/1.8.0@lasote/stable:63da998e3642b50bee33f4449826b2d623661505
+    hello/0.1@demo/testing:63da998e3642b50bee33f4449826b2d623661505
+
+[full_options]
+    gtest:cygwin_msvc=False
+    gtest:include_pdbs=False
+    gtest:shared=False
+
+[scope]
+    dev=True
+
+[recipe_hash]
+None
